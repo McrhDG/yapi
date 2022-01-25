@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     def ProjectBranch = env.GIT_BRANCH.split("/")[1]
-                    def packageManager = "/usr/local/bin/npm"
+                    def packageManager = "npm"
                     def START_SCRIPT= ""
                     sh "curl -i -X POST -H \"'Content-type':'application/json'\" -d \'{\"buildid\":\"${env.BUILD_ID}\",\"jenkinsjobname\":\"${env.JOB_NAME}\",\"buildurl\":\"${env.BUILD_URL}\",\"branchname\":\"${env.GIT_BRANCH}\",\"images\":\"\",\"status\":\"构建中\",\"steps\":\"start\"}\' ${BuildInfoUrl}"
                     if (ProjectBranch == "master"){
@@ -58,12 +58,12 @@ pipeline {
 
                     }else {
                         START_SCRIPT = "start"
-                        sh "npm config set registry https://registry.npm.taobao.org && ${packageManager} install && ${packageManager}  run build-client"
+                        sh "cp config-dev.json ../config.json"
+                        sh "npm config set registry http://npm.wenwo.com && ${packageManager} install && ${packageManager} run build-client"
+                        sh "rm -f ../config.json"
                     }
                     echo VERSION
-                    sh 'tar czf Data-${VERSION}.tgz .'
-                    //sh 'tar czf Static-Data-${VERSION}.tgz .nuxt'
-                    //sh " curl -F \"loadFile=@Static-Data-${VERSION}.tgz\" -F \"fileName=Static-Data-${VERSION}.tgz\" -F \"appName=${NAME}\" -F \"buildId=${Build_Id}\" -X POST \"http://10.200.0.128:80/upFile\" "
+                    sh 'tar -czf Data-${VERSION}.tgz ./*'
                     def projectBranch = env.GIT_BRANCH.split("/")[1]
                     sh "echo '' > Dockerfile"
                     sh "echo 'FROM registry.cn-beijing.aliyuncs.com/awyl/nodejs:v1' >> Dockerfile"
