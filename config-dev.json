@@ -19,5 +19,13 @@
       "user": "***@163.com",
       "pass": "*****"
     }
-  }
+  },
+  "plugins": [
+    {
+      "name": "dingding",
+      "options": {
+        "host": "http://wenwo-yapi-dev.wenwo.cn"
+      }
+    }
+    ]
 }

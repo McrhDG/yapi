@@ -58,7 +58,7 @@ pipeline {
 
                     }else {
                         START_SCRIPT = "start"
-                        sh "npm config set registry https://registry.npm.taobao.org && ${packageManager} install"
+                        sh "npm config set registry https://registry.npm.taobao.org && ${packageManager} install && ${packageManager}  run build-client"
                     }
                     echo VERSION
                     sh 'tar czf Data-${VERSION}.tgz .'
