@@ -85,7 +85,8 @@
     "underscore": "1.8.3",
     "url": "0.11.0",
     "vm2": "^3.8.4",
-    "yapi-plugin-dingding": "^1.3.0"
+    "yapi-plugin-dingding": "^1.3.0",
+    "yapi-plugin-add-user": "0.0.1"
   },
   "devDependencies": {
     "antd": "3.2.2",
