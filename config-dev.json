@@ -29,6 +29,28 @@
       },
       {
         "name": "add-user"
+      },
+    {
+      "name": "qsso",
+      "options": {
+        "type": "sso",
+        "loginUrl": "http://10.200.0.167:8080//yapi/yApiSSOAuth?token=",
+        "emailPostfix": "@pingcl.com",
+        "AUTH_SERVER" : "http://10.200.0.167:8080/other/yapiGetToken"
       }
+    },
+    {
+      "name": "gitlab-sync",
+      "options": {
+        "host": "http://10.200.0.140",
+        "accessToken": "pornzEuTfqTb6uNGT_tZ",
+        "loginPath": "/api/v4/user",
+        "authPath": "/oauth/authorize",
+        "tokenPath": "/oauth/token",
+        "emailKey": "email",
+        "userKey": "username",
+        "emailPostfix": "@pingcl.com"
+      }
+    }
     ]
 }
