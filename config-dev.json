@@ -34,7 +34,7 @@
       "name": "qsso",
       "options": {
         "type": "sso",
-        "loginUrl": "http://10.200.0.167:8080//yapi/yApiSSOAuth?token=",
+        "loginUrl": "http://10.200.0.167:8080/yapi/yApiSSOAuth?token=",
         "emailPostfix": "@pingcl.com",
         "AUTH_SERVER" : "http://10.200.0.167:8080/other/yapiGetToken"
       }
