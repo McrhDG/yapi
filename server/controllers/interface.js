@@ -822,6 +822,7 @@ class interfaceController extends baseController {
     }
 
     yapi.emitHook('interface_update', id).then();
+    params.project_id = interfaceData.project_id;
     await this.autoAddTag(params);
 
     ctx.body = yapi.commons.resReturn(result);
@@ -1200,6 +1201,7 @@ class interfaceController extends baseController {
       params.forEach(item => {
         if (item.id) {
           this.catModel.upCatIndex(item.id, item.index).then(
+            // eslint-disable-next-line no-unused-vars
             res => {},
             err => {
               yapi.commons.log(err.message, 'error');
